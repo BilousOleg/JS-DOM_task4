@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script defer src="./assets/js/UserMessage.js"></script>
     <script defer src="./assets/js/index.js"></script>
   </head>
   <body>
@@ -22,21 +23,26 @@
           Please fill in your information and we'll be sending your order
         </p>
 
-        <form class="contact-form">
+        <form class="contact-form" id="contact-form">
           <fieldset class="form-row">
             <label class="form-label" for="name-input">Your name</label>
 
+            <!-- Наявна валідація імен та прізвищ, з урахуванням подвійних іменувань -->
             <input
               class="interactive-element"
               id="name-input"
+              name="firstName"
               type="text"
               placeholder="first name"
+              pattern="[A-Z][a-z]{1,20}(-[A-Z][a-z]{1,20})?"
               autofocus
             />
             <input
               class="interactive-element"
+              name="lastName"
               type="text"
               placeholder="last name"
+              pattern="[A-Z][a-z]{1,20}(-[A-Z][a-z]{1,20})?"
             />
           </fieldset>
 
@@ -44,6 +50,7 @@
             <span class="form-label">Your email</span>
             <input
               class="interactive-element"
+              name="email"
               type="email"
               placeholder="your_mail@mail.com"
             />
@@ -52,30 +59,37 @@
           <fieldset class="form-row">
             <label class="form-label" for="number-input">Phone *</label>
 
+            <!-- Валідація номеру телефону зроблена також через pattern (RegExp) -->
             <input
               class="interactive-element"
               id="number-input"
+              name="phone1"
               type="text"
               placeholder="000"
+              pattern="\d{3}"
               required
             />
             <input
               class="interactive-element"
+              name="phone2"
               type="text"
               placeholder="000"
+              pattern="\d{3}"
               required
             />
             <input
               class="interactive-element"
+              name="phone3"
               type="text"
               placeholder="0000"
+              pattern="\d{4}"
               required
             />
           </fieldset>
 
           <label class="form-row">
             <span class="form-label">Message subject *</span>
-            <select class="interactive-element" required>
+            <select class="interactive-element" name="subject" required>
               <option value="" disabled selected>Choose option</option>
               <option value="option2">Option2</option>
               <option value="option3">Option3</option>
@@ -85,10 +99,16 @@
 
           <label class="form-row textarea-row">
             <span class="form-label">Message *</span>
-            <textarea class="interactive-element" required></textarea>
+            <textarea
+              class="interactive-element"
+              name="message"
+              required
+            ></textarea>
           </label>
 
-          <button class="submit-btn" type="submit">Submit Form</button>
+          <button id="submit-btn" class="submit-btn" type="submit">
+            Submit Form
+          </button>
         </form>
       </section>
     </main>

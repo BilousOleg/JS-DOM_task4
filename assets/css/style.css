@@ -64,11 +64,11 @@ html {
   outline: none;
 }
 
-.interactive-element:valid {
+.interactive-element:focus:valid {
   box-shadow: 0 0 1px 1px green;
 }
 
-.interactive-element:invalid {
+.interactive-element:focus:invalid {
   box-shadow: 0 0 1px 1px red;
 }
 
