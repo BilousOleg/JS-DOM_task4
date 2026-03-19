@@ -9,3 +9,43 @@
   align-items: center;
   min-height: 100vh;
 }
+
+.form-description {
+  margin: 32px 0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-row .interactive-element {
+  width: 100%;
+  padding: 8px 14px;
+}
+
+.form-row textarea.interactive-element {
+  min-height: 80px;
+}
+
+.form-row:last-child span {
+  align-self: flex-start;
+}
+
+.form-label {
+  min-width: 120px;
+  margin-top: 4px;
+}
+
+.submit-btn {
+  margin-left: calc(120px + 20px);
+  padding: 8px;
+  text-transform: uppercase;
+}
