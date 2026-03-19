@@ -3,25 +3,33 @@
 }
 
 :root {
+  --text-color: #ffffff;
+  --highligh-color: #000000;
+  --default-bg-color: rgba(19, 122, 122, 0.249);
+  --valid-color: green;
+  --invalid-color: red;
+  --placeholder-color: rgb(222, 222, 222);
+  --submit-hover-color: rgb(128, 128, 128, 0.3);
   --form-gap: 16px;
   --form-label-width: 9.375rem;
+  --border-width: 2px;
 }
 
 html {
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
-  color: white;
+  color: var(--text-color);
 }
 
 .form-page {
-  background: rgba(19, 122, 122, 0.249);
+  background: var(--default-bg-color);
   background-image: url('./../images/bg-beach-photo.jpg');
   background-size: cover;
 }
 
 .form-section {
   padding: 2.5rem;
-  box-shadow: 0 0 0.875rem 0.25rem black;
+  box-shadow: 0 0 0.875rem 0.25rem var(--highligh-color);
 }
 
 .form-heading {
@@ -65,28 +73,28 @@ html {
 }
 
 .interactive-element:focus:valid {
-  box-shadow: 0 0 1px 1px green;
+  box-shadow: 0 0 1px 1px var(--valid-color);
 }
 
 .interactive-element:focus:invalid {
-  box-shadow: 0 0 1px 1px red;
+  box-shadow: 0 0 1px 1px var(--invalid-color);
 }
 
 .interactive-element:focus {
-  box-shadow: 0 0 1px 1px black;
+  box-shadow: 0 0 1px 1px var(--highligh-color);
 }
 
 input.interactive-element::placeholder {
-  color: rgb(222, 222, 222);
+  color: var(--placeholder-color);
 }
 
 textarea.interactive-element {
-  min-height: 100px;
+  min-height: 6.25rem;
 }
 
 .textarea-row {
   padding-bottom: var(--form-gap);
-  border-bottom: 1px solid white;
+  border-bottom: calc(var(--border-width) / 2) solid var(--text-color);
 }
 
 .form-label {
@@ -101,16 +109,16 @@ textarea.interactive-element {
 
 .submit-btn {
   margin: 0 0 var(--form-gap)
-    calc(var(--form-label-width) + var(--form-gap) + 2px);
+    calc(var(--form-label-width) + var(--form-gap) + var(--border-width));
   padding: 0.5rem;
   text-transform: uppercase;
-  color: white;
-  border: 2px solid white;
-  border-top-width: 3px;
+  color: var(--text-color);
+  border: var(--border-width) solid var(--text-color);
+  border-top-width: calc(var(--border-width) * 1.5);
   background: transparent;
   cursor: pointer;
 }
 
 .submit-btn:hover {
-  background-color: rgb(128, 128, 128, 0.3);
+  background-color: var(--submit-hover-color);
 }
