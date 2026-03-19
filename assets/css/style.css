@@ -1,3 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --form-gap: 16px;
+  --form-label-width: 9.375rem;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.form-page {
+  background: rgba(19, 122, 122, 0.249);
+  background-image: url('./../images/bg-beach-photo.jpg');
+  background-size: cover;
+}
+
+.form-section {
+  padding: 2.5rem;
+  box-shadow: 0 0 0.875rem 0.25rem black;
+}
+
+.form-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -11,41 +42,75 @@
 }
 
 .form-description {
-  margin: 32px 0;
+  margin: 2rem 0;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: var(--form-gap);
 }
 
 .form-row {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
-.form-row .interactive-element {
+.interactive-element {
   width: 100%;
-  padding: 8px 14px;
+  padding: 0.5rem 0.875rem;
+  border: none;
+  outline: none;
 }
 
-.form-row textarea.interactive-element {
-  min-height: 80px;
+.interactive-element:valid {
+  box-shadow: 0 0 1px 1px green;
 }
 
-.form-row:last-child span {
-  align-self: flex-start;
+.interactive-element:invalid {
+  box-shadow: 0 0 1px 1px red;
+}
+
+.interactive-element:focus {
+  box-shadow: 0 0 1px 1px black;
+}
+
+input.interactive-element::placeholder {
+  color: rgb(222, 222, 222);
+}
+
+textarea.interactive-element {
+  min-height: 100px;
+}
+
+.textarea-row {
+  padding-bottom: var(--form-gap);
+  border-bottom: 1px solid white;
 }
 
 .form-label {
-  min-width: 120px;
-  margin-top: 4px;
+  min-width: var(--form-label-width);
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.textarea-row span {
+  align-self: flex-start;
 }
 
 .submit-btn {
-  margin-left: calc(120px + 20px);
-  padding: 8px;
+  margin: 0 0 var(--form-gap)
+    calc(var(--form-label-width) + var(--form-gap) + 2px);
+  padding: 0.5rem;
   text-transform: uppercase;
+  color: white;
+  border: 2px solid white;
+  border-top-width: 3px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: rgb(128, 128, 128, 0.3);
 }

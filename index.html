@@ -1,10 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script defer src="./assets/js/index.js"></script>
   </head>
@@ -18,12 +24,14 @@
 
         <form class="contact-form">
           <fieldset class="form-row">
-            <span class="form-label">Your name</span>
+            <label class="form-label" for="name-input">Your name</label>
 
             <input
               class="interactive-element"
+              id="name-input"
               type="text"
               placeholder="first name"
+              autofocus
             />
             <input
               class="interactive-element"
@@ -42,25 +50,42 @@
           </label>
 
           <fieldset class="form-row">
-            <span class="form-label">Phone</span>
+            <label class="form-label" for="number-input">Phone *</label>
 
-            <input class="interactive-element" type="text" placeholder="000" />
-            <input class="interactive-element" type="text" placeholder="000" />
-            <input class="interactive-element" type="text" placeholder="0000" />
+            <input
+              class="interactive-element"
+              id="number-input"
+              type="text"
+              placeholder="000"
+              required
+            />
+            <input
+              class="interactive-element"
+              type="text"
+              placeholder="000"
+              required
+            />
+            <input
+              class="interactive-element"
+              type="text"
+              placeholder="0000"
+              required
+            />
           </fieldset>
 
           <label class="form-row">
-            <span class="form-label">Message subject</span>
-            <select class="interactive-element">
-              <option value="other">Other</option>
+            <span class="form-label">Message subject *</span>
+            <select class="interactive-element" required>
+              <option value="" disabled selected>Choose option</option>
               <option value="option2">Option2</option>
               <option value="option3">Option3</option>
+              <option value="other">Other</option>
             </select>
           </label>
 
-          <label class="form-row">
-            <span class="form-label">Message</span>
-            <textarea class="interactive-element"></textarea>
+          <label class="form-row textarea-row">
+            <span class="form-label">Message *</span>
+            <textarea class="interactive-element" required></textarea>
           </label>
 
           <button class="submit-btn" type="submit">Submit Form</button>
