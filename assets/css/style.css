@@ -4,6 +4,7 @@
 
 :root {
   --text-color: #ffffff;
+  --input-bg-color: #ffffff;
   --highligh-color: #000000;
   --default-bg-color: rgba(19, 122, 122, 0.249);
   --valid-color: green;
@@ -22,13 +23,14 @@ html {
 }
 
 .form-page {
+  padding: 20px;
   background: var(--default-bg-color);
   background-image: url('./../images/bg-beach-photo.jpg');
   background-size: cover;
 }
 
 .form-section {
-  padding: 2.5rem;
+  padding: 1.5rem;
   box-shadow: 0 0 0.875rem 0.25rem var(--highligh-color);
 }
 
@@ -50,7 +52,7 @@ html {
 }
 
 .form-description {
-  margin: 2rem 0;
+  margin: var(--form-gap) 0;
 }
 
 .contact-form {
@@ -61,14 +63,16 @@ html {
 
 .form-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.7rem;
 }
 
 .interactive-element {
   width: 100%;
   padding: 0.5rem 0.875rem;
   border: none;
+  background-color: var(--input-bg-color);
   outline: none;
 }
 
@@ -76,7 +80,7 @@ html {
   box-shadow: 0 0 1px 1px var(--valid-color);
 }
 
-.interactive-element:focus:invalid {
+.interactive-element:invalid:not(:placeholder-shown, select) {
   box-shadow: 0 0 1px 1px var(--invalid-color);
 }
 
@@ -90,6 +94,8 @@ input.interactive-element::placeholder {
 
 textarea.interactive-element {
   min-height: 6.25rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
 }
 
 .textarea-row {
@@ -98,13 +104,10 @@ textarea.interactive-element {
 }
 
 .form-label {
+  align-self: flex-start;
   min-width: var(--form-label-width);
   margin-top: 0.25rem;
   font-weight: 500;
-}
-
-.textarea-row span {
-  align-self: flex-start;
 }
 
 .submit-btn {
@@ -121,4 +124,23 @@ textarea.interactive-element {
 
 .submit-btn:hover {
   background-color: var(--submit-hover-color);
+}
+
+@media screen and (min-width: 768px) {
+  .form-page {
+    padding: 30px;
+  }
+
+  .form-description {
+    margin: calc(var(--form-gap) * 2) 0;
+  }
+
+  .form-section {
+    padding: 2.5rem;
+  }
+
+  .form-row {
+    flex-direction: row;
+    gap: 1.25rem;
+  }
 }
